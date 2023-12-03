@@ -3,21 +3,26 @@ const express = require('express');
 const api = express();
 const router = express.Router();
 
-const port = process.env.PORT || 30000;
+const port = 3000;
 
 router.get('/', (req, res)=>{
-    res.type('aplication/json')
-    res.send('Hello World from GET');
+    //res.type('aplication/json')
+    res.json('Hello World from GET');
+})
+
+router.get('/webhook', (req, res)=>{
+    //res.type('aplication/json')
+    res.json('Hello World from GET Webhook');
 })
 
 router.post('/webhook', (req, res)=>{
-    res.type('aplication/json');
-    res.send('Hello world form POST - Webhook');
+    //res.type('aplication/json');
+    res.json('Hello world form POST - Webhook');
 })
 
-app.use(router);
+api.use(router);
 
-app.listen(port, ()=>{
+api.listen(port, ()=>{
 
     console.log(`Servidor rodando na porta ${port}`);
     })
